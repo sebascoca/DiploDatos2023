@@ -286,9 +286,7 @@ Previa a la imputación es necesario realizar una representación gráfica para 
 \end{center}
 \end{figure}
 
-En la Figura \ref{faltantes2}, se observa una correlación entre los datos faltantes de las variables "Building area" y "Year build", esto se debe a que existe una relación entre ellas,  hay una tendencia en que las propiedades más nuevas tienen menos área de construcción.
-
-
+En la Figura \ref{faltantes2}, se observa una correlación entre los datos faltantes de las variables "Building area" y "Year build", esto se debe a que existe una relación entre ellas, hay una tendencia en que las propiedades más nuevas tienen menos área de construcción.
 Las variables `YearBuilt' y `BuildingArea' tienen numerosas entradas faltantes. La distribución original de datos tiene distribución bimodal, con un descenso en los registros alrededor de la década del '80, como se puede ver en la Figura \ref{f.imputacion}. El método KNN rellena los datos faltantes con valores entorno a este rango de años con vacíos de registros, dando lugar a una distribución unimodal en `YearBuilt'. 
 Otro método explorado fue el Bayesian Ridge, el cual es una técnica flexible y efectiva que permite manejar datos incompletos de manera robusta. Sin embargo, es importante tener en cuenta que la calidad de las imputaciones depende de la calidad del modelo de regresión Ridge y de las suposiciones subyacentes sobre los datos. Para el caso particular de estudio, no fue satisfactorio el resultado dado que asignó valores erróneos como ser fechas futuras. No se modificó la naturaleza bimodal en el conjunto original de datos para `YearBuilt', estando concentradas las imputaciones para la década del '60 del siglo pasado. Por último, debemos destacar la inconsistencia en la imputación, lo cual queda reflejado por la ausencia de relación directa entre los valores asignados según KNN versus el método Bayesiano, como se puede ver en la Figura \ref{regresion}.
 
@@ -335,7 +333,11 @@ Analizamos los scores de las viviendas a lo largo del eje 1 del PCA. También es
 
 \subsection*{Comentarios Finales}
 Finalmente, luego de todas las transformaciones aplicadas en esta parte del entregable 2, se generó una tabla final que queda disponible en: \href{
-https://raw.githubusercontent.com/sebascoca/DiploDatos2023/main/AnalisisYCuracion/Practico/tablafinalAEyC.csv}{tabla-final-AEyC.csv}. 
+https://raw.githubusercontent.com/sebascoca/DiploDatos2023/main/AnalisisYCuracion/Practico/tablafinalAEyC.csv}{tabla-final-AEyC.csv}. \\[.5cm]
+
+Repositorio con todo el material: \href{https://github.com/sebascoca/DiploDatos2023/tree/main/AnalisisYCuracion/Practico}{GitHub del Práctico}
+
+
 
 \end{document}
 
