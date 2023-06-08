@@ -1,0 +1,171 @@
+%\documentclass[12pt,a4paper,spanish]{report}
+\documentclass[12pt,a4paper,spanish]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage{fancybox}
+%\usepackage{hyperref} % páginas web e hipervínculos en el documento
+\usepackage[hidelinks]{hyperref} % no dibuja el recuadro del vínculo
+\usepackage[usenames]{color}
+\usepackage{xcolor}
+\usepackage{enumerate}
+\usepackage{amsfonts,amssymb}
+\usepackage{xfrac} % para fracciones		    <=== sfrac
+%\usepackage[makeroom]{cancel} %para cancelar
+%\usepackage{paralist}
+%\usepackage{multirow}
+\usepackage{fancyhdr}
+\usepackage{mathtools} %cuadros en ecuaciones
+\usepackage{tcolorbox} % " de color
+%\usepackege[table,xcdraw]{xcolor} %se utiliza con
+%definecolor{nombre}{HTML}{69A84F} <- color hexadecimal
+%\usepackage{datetime}
+%
+%\usepackage[style=apa]{biblatex}
+%\DefineBibliographyStrings{spanish}{andothers={\textit{\!et al.,}}}
+%\usepackage{csquotes}
+
+%\usepackage[backend=biber,citestyle=authoryear,bibstyle=authortitle,sorting=nyt]{biblatex}
+%\usepackage{natbib}% citas tipo Harvard (autor,año)
+%\usepackage[round,comma,authoryear]{natbib}% citas tipo Harvard (autor,año)
+%\citestyle{apa}
+%\usepackage{apalike}
+%\usepackage{biblatex}
+%\usepackage[fixlanguage]{babelbib}
+%\usepackage{babelbib}
+%\usepackage{tasks}    % para listas horizontales    <=== > task(s)
+%%\usepackage{exsheets} % para exámenes		      <===
+
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf} %modifica los captions
+%\captionsetup[table]{font=small,labelfont=bf} %modifica los captions
+%\captionsetup[table]{font=small,labelsep=period,labelfont=bf} %modifica los captions
+%\captionsetup[figure]{font=small,labelfont=bf} %modifica los captions
+%\captionsetup[longtable]{font=small,labelsep=period,labelfont=bf,width=16.5cm}
+%%\usepackage[subfolder]{gnuplottex} % cleanup
+\usepackage{keyval,latexsym,ifthen,moreverb} %requerido por caption
+\usepackage{listings} % para insertar código
+% para figura en primera página
+% src: https://tex.stackexchange.com/questions/167719/how-to-use-background-image-in-latex
+%\usepackage{tikz}
+% src: https://ipfs-sec.stackexchange.cloudflare-ipfs.com/tex/A/question/46280.html
+\usepackage{transparent}
+%\usepackage{wallpaper}
+%\usepackage{eso-pic}
+%\newcommand\BackgroundPic{%
+%  \put(0,0){%
+%  \parbox[b][\paperheight]{\paperwidth}{%
+%  \vfill
+%  \centering
+  %{\transparent{0.4}%
+%  \includegraphics[width=\paperwidth,height=\paperheight,%
+%  keepaspectratio]{img/tapa.eps}%
+  %}
+%  \vfill
+%  }}}
+
+%============
+\newcommand*\rot{\rotatebox{60}}
+
+% para el estilo y forma de la página
+\addtolength{\textwidth}{2.5cm}
+\pagestyle{fancy}
+\lhead{\bf{G32}}
+\chead{}
+\rhead{\sl Dos Santos, Gramajo, Rubio \& Coca}
+\lfoot{\sl AEyCD}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+%\linespread{1.11} %separación entre líneas
+
+\textheight 23cm 
+%\textwidth 165mm
+\topmargin -1cm 
+\oddsidemargin 0in
+\evensidemargin 0in
+%\evensidemargin -1.5in
+
+\def\fecha#1{\sf\large
+%  \newcommand\myToday{
+    #1 de
+    \ifcase\month\or Enero\or Febrero\or Marzo\or Abril\or Mayo\or Junio\or
+    Julio\or Agosto\or Septiembre\or Octubre\or Noviembre\or Diciembre\fi\space de
+    \number\year
+  }
+
+\newcommand\myToday{ 
+  \ifcase\month\or Enero\or Febrero\or Marzo\or Abril\or Mayo\or Junio\or
+  Julio\or Agosto\or Septiembre\or Octubre\or Noviembre\or Diciembre\fi\space de
+  %\space\number\day,  
+  \number\year}
+
+% cuadros
+\newcommand{\cuadro}[1]{%
+%{\begin{center} \ovalbox{\begin{minipage}[c]{.9\textwidth}
+{\begin{center} \framebox{\begin{minipage}[c]{.9\textwidth}
+ \begin{center} 
+    { #1}
+  \end{center} \end{minipage} }
+ \end{center}}
+ }
+
+%
+\newcounter{problema}
+%
+\renewcommand{\baselinestretch}{1.5}
+\newcommand{\prob}[1]{\stepcounter{problema} 
+\noindent{\bf Problema Nº \arabic{problema}:} }
+
+\newcommand{\probp}[1]{\stepcounter{problema} 
+\noindent{\bf Problema Nº \arabic{problema}: {\it(#1 pts.)}} }
+
+% cambio de Listing a Sintáxis
+\renewcommand{\lstlistingname}{Sintáxis}
+
+
+% enumerate environment
+% fuente: http://en.wikibooks.org/wiki/LaTeX/List_Structures
+%\let\oldenumerate\enumerate
+%\renewcommand{\enumerate}{
+%  \oldenumerate
+%  \setlength{\itemsep}{-5pt}
+%  \setlength{\parskip}{0pt}
+%  \setlength{\parsep}{0pt}
+%}
+
+
+
+
+% redifine item command !!! usar este
+%\newlength{\wideitemsep}
+%\setlength{\wideitemsep}{.1\itemsep}
+%\addtolength{\wideitemsep}{-7pt}
+%\let\olditem\item
+%\renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}
+
+\addto\captionsspanish{%
+  \renewcommand{\tablename}%
+  {Tabla}
+}
+
+% redifine item command
+%\newlength{\wideitemsep}
+%\setlength{\wideitemsep}{.1\itemsep}
+%\addtolength{\wideitemsep}{-7pt}
+%\let\olditem\item
+%\renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}
+
+
+\makeatletter % para usar con tcolorbox
+\let\Asol\Aboxed
+\let\@Asol\@Aboxed
+\patchcmd{\Asol}{\@Aboxed}{\@Asol}{}{}%
+\patchcmd{\@Asol}{\boxed{#1#2}}{\fcolorbox{red}{yellow}{$\displaystyle #1#2$}}{}{}%
+\makeatother
+
